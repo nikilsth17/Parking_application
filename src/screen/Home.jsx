@@ -40,7 +40,7 @@ const Home = () => {
           paddingTop:30,
           gap:15
           }}>
-    <TouchableOpacity onPress={()=>navigation.navigate("RequestDonation")}>
+    <TouchableOpacity onPress={()=>navigation.navigate("SiteMap")}>
                   <Surface style={{ padding: 8,
                   height: 120,
                   width: 150,
@@ -52,7 +52,7 @@ const Home = () => {
                   <Text paddingTop={10}>Available Park(Car)</Text>
                 </Surface>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=>navigation.navigate("RequestDonation")}>
+            <TouchableOpacity onPress={()=>navigation.navigate("SiteMap")}>
                   <Surface style={{ padding: 8,
                   height: 120,
                   width: 150,
@@ -64,7 +64,7 @@ const Home = () => {
                   <Text paddingTop={10}>Available Park(bike)</Text>
                 </Surface>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=>navigation.navigate("RequestDonation")}>
+            <TouchableOpacity onPress={()=>navigation.navigate("SiteMap")}>
                   <Surface style={{ padding: 8,
                   height: 120,
                   width: 150,
@@ -93,7 +93,7 @@ const Home = () => {
           <Text>Explore the Parking Area</Text>
 
           <Card onPress={()=>navigation.navigate("SiteMap")}>
-            <Card.Cover source={require("../assets/map.png")} />
+            <Card.Cover source={require("../assets/map.jpeg")} />
           </Card>
           </View>
     </>

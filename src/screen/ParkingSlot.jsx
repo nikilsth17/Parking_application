@@ -18,12 +18,15 @@ const ParkingSlot = ({navigation}) => {
   const [slotNumber, setSlotNumber] = useState('');
   const [vehicleNumber, setVehicleNumber] = useState('');
   const [responseData, setResponseData] = useState(null);
-
+  const [bookedTime, setBookedTime] = useState('');
+const [expiredTime,setExpiredTime]= useState('');
   const handleSubmit = async () => {
     try {
       const requestData = {
         slotNumber,
-        vehicleNumber
+        vehicleNumber,
+        bookedTime,
+        expiredTime
       };
       const response = await axios.post(
         `${ApiBaseUrl}/parkingslot/add`,
@@ -67,6 +70,21 @@ const ParkingSlot = ({navigation}) => {
           value={vehicleNumber}
           onChangeText={(text) => setVehicleNumber(text)}
         />
+        <View style={{display:"flex",flexDirection:"row",gap:10,padding:5}}>
+        <TextInput
+          style={styles.input}
+          placeholder="Booking Time"
+          value={bookedTime}
+          onChangeText={(text) => setBookedTime(text)}
+        />
+           <TextInput
+          style={styles.input}
+          placeholder="Booking expired time"
+          value={expiredTime}
+          onChangeText={(number) => setExpiredTime(number)}
+        />
+        </View>
+       
         <Button onPress={handleSubmit}>Add Parking Slot</Button>
       </View>
       <DataTable >
@@ -175,19 +193,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
-    padding:10,
+    padding:5,
   },
   heading: {
-    fontSize: 24,
-    marginBottom: 20,
+    fontSize: 20,
+    marginBottom: 10,
   },
   input: {
-    width: "80%",
+    width: "50%",
     height: 40,
     borderColor: "gray",
     borderWidth: 1,
-    marginBottom: 20,
-    paddingHorizontal: 10,
+    marginBottom: 10,
+    paddingHorizontal: 5,
   },
 });
 export default ParkingSlot;

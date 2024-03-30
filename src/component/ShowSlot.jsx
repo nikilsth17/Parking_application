@@ -1,4 +1,4 @@
-import { View, SafeAreaView } from "react-native";
+import { View, SafeAreaView, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -28,7 +28,7 @@ const ShowSlot = () => {
     }
   };
   return (
-    <SafeAreaView>
+    <ScrollView>
       <View style={{ height: 90, backgroundColor: "green" }}>
         <View
           style={{ flexDirection: "row", alignItems: "center", marginTop: 50 }}
@@ -45,12 +45,14 @@ const ShowSlot = () => {
         </View>
       </View>
 
-
-    {parkingData.map((item)=>(
+{parkingData.map((item)=>(
         <Card key={item._id} style={{ padding: 10, margin: 10 }}>
         <Card.Content>
-          <Text variant="titleLarge">Slot Number:{item.slotNumber}</Text>
-          <Text variant="bodyMedium">Vehicle Number:{item.vehicleNumber}</Text>
+          <Text variant="titleLarge">Slot Number: {item.slotNumber}</Text>
+          <Text variant="bodyMedium">Vehicle Number: {item.vehicleNumber}</Text>
+          <Text variant="bodyMedium">Booking Time: {item.bookedTime}</Text>
+          <Text variant="bodyMedium">Expired time: {item.expiredTime}</Text>
+
         
         </Card.Content>
         <View style={{display:"flex",flexDirection:"row",gap:10,alignItems:"center",justifyContent:"center",padding:10}}>
@@ -60,8 +62,9 @@ const ShowSlot = () => {
        
       </Card>
     ))}
+</ScrollView>
+   
       
-    </SafeAreaView>
   );
 };
 
